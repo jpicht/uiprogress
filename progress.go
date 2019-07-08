@@ -76,6 +76,11 @@ func Listen() {
 	defaultProgress.Listen()
 }
 
+// Print prints the bars
+func Print() {
+	defaultProgress.Print()
+}
+
 func (p *Progress) SetOut(o io.Writer) {
 	p.mtx.Lock()
 	defer p.mtx.Unlock()
@@ -118,6 +123,10 @@ func (p *Progress) Listen() {
 			return
 		}
 	}
+}
+
+func (p *Progress) Print() {
+	p.print()
 }
 
 func (p *Progress) print() {
